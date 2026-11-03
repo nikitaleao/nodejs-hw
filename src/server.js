@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/authRoutes.js';
 import notesRouter from './routes/notesRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import { errors } from 'celebrate';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use(authRoutes);
 app.use(notesRouter);
+app.use(userRoutes);
 
 app.use(notFoundHandler);
 app.use(errors());
